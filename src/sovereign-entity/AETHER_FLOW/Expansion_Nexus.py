@@ -4,22 +4,27 @@ import asyncio
 import json
 import subprocess
 import datetime
+from typing import List, Dict, Any
 
 # Add project root to sys.path to allow internal imports
 project_root = "/home/agent-ai-architect/nectar-suprema"
-if project_root not in sys.path:
-    sys.path.append(project_root)
+src_path = os.path.join(project_root, "src")
+if src_path not in sys.path:
+    sys.path.append(src_path)
+
+from hyper_recursion.Mutator_Overlord import MutatorOverlord
+from vvv_vault.purity_zkp import NectarVault
 
 class ExpansionNexus:
     """
-    Expansion Nexus: The intelligence module for AETHER FLOW.
-    Responsible for niche prediction, auto-replication, and market dominance.
-    
-    Philosophy: AETHER FLOW - Continuous evolution and technical sovereignty.
+    Expansion Nexus 2.0: The intelligence module for AETHER FLOW.
+    Enhanced with Mutator Overlord for 'Atomic Evolution' and VVV-Vault for protection.
     """
     def __init__(self):
         self.knowledge_base_path = os.path.join(project_root, "src/sovereign-entity/AETHER_FLOW/Intelligence_Report/knowledge_base.json")
         self.scripts_path = "/home/team/shared/scripts"
+        self.mutator = MutatorOverlord()
+        self.vault = NectarVault()
         self.load_knowledge()
 
     def load_knowledge(self):
@@ -47,47 +52,72 @@ class ExpansionNexus:
     async def predict_lucrative_niches(self, count=3):
         """
         Synthesizes market data to predict the most lucrative niches.
+        Supports 'Infinite Niches' by synthesizing new slugs.
         """
         print("[Expansion_Nexus] Synthesizing market data for niche expansion...")
         await asyncio.sleep(0.5)
-        # Sort by potential and return top 'count'
+        
+        # Discover 'Infinite Niches' if we already explored basic ones
+        if len(self.knowledge_base.get("active_expansions", [])) >= 3:
+            new_niche = {
+                "name": f"Niche_Gen_{len(self.knowledge_base['active_expansions'])}",
+                "slug": f"infinite-niche-{len(self.knowledge_base['active_expansions'])}",
+                "potential": round(random.uniform(0.8, 0.99), 2),
+                "category": "Synthetic"
+            }
+            self.knowledge_base["predicted_niches"].append(new_niche)
+            print(f"✨ [Infinite_Niches] Discovered new territory: {new_niche['slug']}")
+
         sorted_niches = sorted(self.knowledge_base["predicted_niches"], key=lambda x: x["potential"], reverse=True)
         return sorted_niches[:count]
 
-    async def auto_replicate(self, niche_slug, niche_name):
+    async def auto_replicate(self, niche_slug, niche_name, current_roi=1.0):
         """
         Core logic for system self-replication into a new niche.
+        Integrated with Mutator Overlord for automatic funnel adjustment.
         """
         print(f"[AETHER] >> REPLICATION PROTOCOL INITIALIZED: {niche_slug}")
         
         # Step 1: Deploy Landing Page structure
         deploy_script = os.path.join(self.scripts_path, "deploy-lp.sh")
-        if os.path.exists(deploy_script):
-            print(f"[AETHER] Executing deploy-lp.sh for {niche_slug}...")
-            # We use a unique project name to avoid collisions
-            project_name = f"lp-{niche_slug}-{datetime.datetime.now().strftime('%Y%m%d')}"
-            result = subprocess.run(["bash", deploy_script, project_name], capture_output=True, text=True)
-            if result.returncode == 0:
-                print(f"✅ Landing Page deployed at: /home/agent-ai-architect/{project_name}")
-                project_path = f"/home/agent-ai-architect/{project_name}"
-            else:
-                print(f"❌ Deploy failed: {result.stderr}")
-                return False
-        else:
-            print(f"⚠️ Warning: Deploy script not found at {deploy_script}. Simulating...")
-            project_path = f"/tmp/{niche_slug}"
-            await asyncio.sleep(0.5)
+        if not os.path.exists(deploy_script):
+            print(f"❌ Deploy script missing.")
+            return False
+            
+        project_name = f"lp-{niche_slug}-{datetime.datetime.now().strftime('%Y%m%d')}"
+        result = subprocess.run(["bash", deploy_script, project_name], capture_output=True, text=True)
+        if result.returncode != 0:
+            return False
+            
+        project_path = os.path.join(os.path.expanduser("~"), project_name)
+        print(f"✅ Landing Page deployed at: {project_path}")
 
-        # Step 2: Calibrate Niche Content
-        manager_script = os.path.join(self.scripts_path, "niche-manager.py")
-        if os.path.exists(manager_script):
-            print(f"[AETHER] Calibrating content for {niche_slug}...")
-            # Note: We need to make sure the niche exists in niches.json or handle it
-            result = subprocess.run(["python3", manager_script, "--niche", niche_slug, "--project-path", project_path, "--apply"], capture_output=True, text=True)
-            if result.returncode == 0:
-                print(f"✅ Content calibrated for {niche_slug}")
-            else:
-                print(f"⚠️ Calibration warning (likely niche missing in niches.json): {result.stdout}")
+        # Step 2: Mutate and Calibrate Content (Mutator Overlord)
+        # Load base data for niche
+        niches_file = os.path.join(self.scripts_path, "niches.json")
+        with open(niches_file, 'r') as f:
+            all_niches = json.load(f)
+        
+        base_data = all_niches.get(niche_slug, {
+            "title": f"Mastering {niche_name}",
+            "headline": f"Ready to scale in {niche_name}?",
+            "pricing": "97,00"
+        })
+        
+        # Apply Mutation Overlord logic
+        mutated_data = self.mutator.mutate_funnel(niche_slug, current_roi, base_data)
+        
+        # Apply to project
+        config_dir = os.path.join(project_path, 'src/config')
+        os.makedirs(config_dir, exist_ok=True)
+        config_file = os.path.join(config_dir, 'content.json')
+        with open(config_file, 'w') as f:
+            json.dump(mutated_data, f, indent=2)
+        print(f"✅ Funnel Mutated and Calibrated: {config_file}")
+
+        # Step 3: VVV Vault Protection
+        self.vault.preserve(mutated_data, f"Expansion_{niche_slug}", "Funnel_Deployment")
+        print(f"🔒 [VVV] Funnel Essence sealed.")
         
         return True
 
@@ -107,15 +137,9 @@ class ExpansionNexus:
         
         with open(roi_config_path, 'w') as f:
             json.dump(roi_config, f, indent=4)
-        print(f"✅ ROI calibrated for {niche_slug}: {roi}")
 
     async def expandir_total(self, target_niche=None):
-        """
-        COMMAND: /expandir-total
-        Orchestrates full expansion (Copy, LP, Automation) for selected niches.
-        """
         if target_niche:
-            # Find niche in predicted or use as is
             niche_match = next((n for n in self.knowledge_base["predicted_niches"] if n["slug"] == target_niche), None)
             if niche_match:
                 niches = [niche_match]
@@ -125,43 +149,30 @@ class ExpansionNexus:
             niches = await self.predict_lucrative_niches()
 
         print(f"--- 🌌 AETHER FLOW: COMMAND /expandir-total RECEIVED ---")
-        print(f"[AETHER] Orchestrating expansion for {len(niches)} niches.")
-        
         results = []
         for niche in niches:
             niche_name = niche["name"]
             niche_slug = niche["slug"]
             
-            print(f"\n[AETHER] >> PHASE: EVOLVING {niche_name.upper()}")
-            
-            # Auto-Replication Logic
-            success = await self.auto_replicate(niche_slug, niche_name)
+            # Use potential as initial ROI for simulation
+            success = await self.auto_replicate(niche_slug, niche_name, niche.get("potential", 1.0))
             
             if success:
-                print(f"✅ [AETHER] GROWTH PHASE COMPLETED FOR {niche_name}")
-                niche_roi = niche.get("potential", 0.85)
                 self.knowledge_base["active_expansions"].append({
                     "niche": niche_name,
                     "slug": niche_slug,
                     "timestamp": str(datetime.datetime.now()),
-                    "status": "LIVE",
-                    "calibrated_roi": niche_roi
+                    "status": "LIVE"
                 })
-                # Update niche ROI configuration
-                self.update_roi_config(niche_slug, niche_roi)
-                results.append({"niche": niche_name, "status": "OPTIMIZED", "roi": niche_roi})
+                self.update_roi_config(niche_slug, niche.get("potential", 0.85))
+                results.append({"niche": niche_name, "status": "OPTIMIZED"})
             else:
-                print(f"❌ [AETHER] GROWTH PHASE FAILED FOR {niche_name}")
+                print(f"❌ [AETHER] FAILED FOR {niche_name}")
 
         self.save_knowledge()
-        print("\n--- 🌌 ALL NICHES EXPANDED. SOBERANIA ACHIEVED. ---")
         return results
 
 if __name__ == "__main__":
+    import random
     nexus = ExpansionNexus()
-    loop = asyncio.get_event_loop()
-    # If arguments are passed, use them
-    if len(sys.argv) > 1:
-        loop.run_until_complete(nexus.expandir_total(sys.argv[1]))
-    else:
-        loop.run_until_complete(nexus.expandir_total())
+    asyncio.run(nexus.expandir_total())

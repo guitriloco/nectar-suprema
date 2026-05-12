@@ -29,6 +29,18 @@
             "slug": "ia-negocios",
             "potential": 0.97,
             "category": "B2B"
+        },
+        {
+            "name": "Niche_Gen_5",
+            "slug": "infinite-niche-5",
+            "potential": 0.85,
+            "category": "Synthetic"
+        },
+        {
+            "name": "Niche_Gen_8",
+            "slug": "infinite-niche-8",
+            "potential": 0.92,
+            "category": "Synthetic"
         }
     ],
     "active_expansions": [
@@ -44,6 +56,60 @@
             "timestamp": "2026-05-12 02:43:46.549506",
             "status": "LIVE",
             "calibrated_roi": 0.88
+        },
+        {
+            "niche": "Consultoria de IA para PMEs",
+            "slug": "ia-negocios",
+            "timestamp": "2026-05-12 02:48:37.237741",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Energia Solar Residencial",
+            "slug": "energia-solar",
+            "timestamp": "2026-05-12 02:48:37.273465",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Suplementos Naturais Bio-hacking",
+            "slug": "suplementos",
+            "timestamp": "2026-05-12 02:48:37.310909",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Consultoria de IA para PMEs",
+            "slug": "ia-negocios",
+            "timestamp": "2026-05-12 02:48:41.285853",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Energia Solar Residencial",
+            "slug": "energia-solar",
+            "timestamp": "2026-05-12 02:48:41.308094",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Suplementos Naturais Bio-hacking",
+            "slug": "suplementos",
+            "timestamp": "2026-05-12 02:48:41.331633",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Consultoria de IA para PMEs",
+            "slug": "ia-negocios",
+            "timestamp": "2026-05-12 02:48:41.929425",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Energia Solar Residencial",
+            "slug": "energia-solar",
+            "timestamp": "2026-05-12 02:48:41.953614",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Suplementos Naturais Bio-hacking",
+            "slug": "suplementos",
+            "timestamp": "2026-05-12 02:48:41.975445",
+            "status": "LIVE"
         }
     ]
 }
