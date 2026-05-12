@@ -16,6 +16,7 @@
 The repository is structured into two main pillars: **Intelligence (src)** and **Output (content)**.
 
 ### 🧠 Intelligence (src/)
+- **Sovereign Reality (`/sovereign-entity/Sovereign_Reality.py`)**: The ultimate orchestrator merging Yes, Nov, VVV, and AETHER FLOW.
 - **Nexus Core (`/nexus-core`)**: The central data hub and predictive connectivity layer.
 - **Hyper Recursion (`/hyper-recursion`)**: High-speed recursive logic engine for deep data transformation.
 - **Sovereign Entity (`/sovereign-entity`)**: The primary execution agent, including the `Sovereign_v5` singularity.

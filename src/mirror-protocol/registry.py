@@ -113,6 +113,21 @@ class ExpansionRegistry:
             registered_at=datetime.now().isoformat()
         ))
 
+        # Sovereign Reality Skills
+        self.register_skill(Skill(
+            name="sovereign_reality",
+            module="sovereign-entity/Sovereign_Reality",
+            description="Sovereign Reality — Unified orchestrator merging all CTO.new technologies",
+            commands=[
+                "/expandir-total [nicho]",
+                "/pulse-status",
+                "/optimize-core",
+                "/vault-seal-all"
+            ],
+            status="active",
+            registered_at=datetime.now().isoformat()
+        ))
+
         print(f"[REGISTRY] {len(self.skills)} habilidades registradas")
 
     def register_skill(self, skill: Skill) -> None:
