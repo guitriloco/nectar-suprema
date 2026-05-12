@@ -1,0 +1,49 @@
+{
+    "predicted_niches": [
+        {
+            "name": "Energia Solar Residencial",
+            "slug": "energia-solar",
+            "potential": 0.95,
+            "category": "Home"
+        },
+        {
+            "name": "Acess\u00f3rios de Celular Premium",
+            "slug": "acessorios-celular",
+            "potential": 0.88,
+            "category": "Tech"
+        },
+        {
+            "name": "Suplementos Naturais Bio-hacking",
+            "slug": "suplementos",
+            "potential": 0.92,
+            "category": "Health"
+        },
+        {
+            "name": "Produtos Pet de Luxo",
+            "slug": "pets-luxo",
+            "potential": 0.85,
+            "category": "Pets"
+        },
+        {
+            "name": "Consultoria de IA para PMEs",
+            "slug": "ia-negocios",
+            "potential": 0.97,
+            "category": "B2B"
+        }
+    ],
+    "active_expansions": [
+        {
+            "niche": "Acess\u00f3rios de Celular Premium",
+            "slug": "acessorios-celular",
+            "timestamp": "2026-05-12 02:43:13.621665",
+            "status": "LIVE"
+        },
+        {
+            "niche": "Acess\u00f3rios de Celular Premium",
+            "slug": "acessorios-celular",
+            "timestamp": "2026-05-12 02:43:46.549506",
+            "status": "LIVE",
+            "calibrated_roi": 0.88
+        }
+    ]
+}
