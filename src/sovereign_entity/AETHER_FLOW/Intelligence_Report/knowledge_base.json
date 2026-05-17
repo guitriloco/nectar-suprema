@@ -719,6 +719,27 @@
             "timestamp": "2026-05-15 20:47:07.213302",
             "status": "LIVE",
             "calibrated_roi": 0.7
+        },
+        {
+            "niche": "Premium Coffee Gear",
+            "slug": "premium-coffee-gear",
+            "timestamp": "2026-05-17",
+            "status": "LIVE",
+            "calibrated_roi": 0.9
+        },
+        {
+            "niche": "Smart Home Security",
+            "slug": "smart-home-security",
+            "timestamp": "2026-05-17",
+            "status": "LIVE",
+            "calibrated_roi": 0.9
+        },
+        {
+            "niche": "Sustainable Living",
+            "slug": "sustainable-living",
+            "timestamp": "2026-05-17",
+            "status": "LIVE",
+            "calibrated_roi": 0.9
         }
     ]
 }
