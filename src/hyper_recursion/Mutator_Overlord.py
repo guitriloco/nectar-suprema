@@ -18,7 +18,7 @@ class MutatorOverlord:
     """
     def __init__(self):
         self.optimizer = HarvestOptimizer()
-        self.mutation_log_path = os.path.join(project_root, "src/sovereign-entity/AETHER_FLOW/Intelligence_Report/mutation_log.jsonl")
+        self.mutation_log_path = os.path.join(project_root, "src/sovereign_entity/AETHER_FLOW/Intelligence_Report/mutation_log.jsonl")
 
     def mutate_funnel(self, niche_slug: str, current_roi: float, current_data: Dict[str, Any]) -> Dict[str, Any]:
         """

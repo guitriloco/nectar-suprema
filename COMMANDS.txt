@@ -23,12 +23,15 @@ COMO USAR ESTE SISTEMA:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-🌌 SUPER-HABILIDADES IA (AETHER FLOW)
+🌌 SUPER-HABILIDADES IA (SOVEREIGN REALITY 3.0)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
   /expandir-total            → Orquestrar criação de copy, LP e automação 
                                para os 3 nichos mais lucrativos do momento
   /expandir-total [nicho]    → Executar expansão total para um nicho específico
+  /conquista-global          → Iniciar operação simultânea em todos os nichos 
+                               validados (Researcher + Scanner), com proteção 
+                               ZKP e mutação de funil em tempo real.
   /scanner-mercado           → Listar previsões de nichos com maior ROI
 
   EXEMPLO: /expandir-total energia-solar

@@ -117,9 +117,10 @@ class ExpansionRegistry:
         self.register_skill(Skill(
             name="sovereign_reality",
             module="sovereign-entity/Sovereign_Reality",
-            description="Sovereign Reality — Unified orchestrator merging all CTO.new technologies",
+            description="Sovereign Reality 3.0 — Unified orchestrator for global dominance",
             commands=[
                 "/expandir-total [nicho]",
+                "/conquista-global",
                 "/pulse-status",
                 "/optimize-core",
                 "/vault-seal-all"
